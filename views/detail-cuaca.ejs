@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Info Cuaca</title>
+    <style>
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        color: white; /* Ubah warna teks utama menjadi putih agar kontras */
+
+        /* BARU: Atur gambar latar belakang */
+        background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/National_Monument_%28Monas%29%2C_Jakarta.jpg/800px-National_Monument_%28Monas%29%2C_Jakarta.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        transition: background-image 0.5s ease-in-out;
+    }
+
+    /* BARU: Tambahkan lapisan gelap agar teks mudah dibaca */
+    .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5); 
+        z-index: 1;
+    }
+
+    .weather-card {
+        background: rgba(0, 0, 0, 0.6); /* Buat kartu sedikit transparan */
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 4px 30px rgba(0,0,0,0.4);
+        text-align: center;
+        width: 300px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        position: relative; /* Pastikan kartu di atas lapisan gelap */
+        z-index: 2;
+    }
+
+    /* Sisa styling (h1, .condition, .temp, .details) bisa tetap sama */
+    .weather-card h1 { margin-top: 0; font-size: 24px; color: #fff; }
+    .weather-card .condition { display: flex; align-items: center; justify-content: center; margin: 10px 0; font-size: 20px; color: #eee; }
+    .weather-card img { margin-right: 10px; }
+    .weather-card .temp { font-size: 48px; font-weight: bold; margin: 20px 0; color: #fff; }
+    .weather-card .details { text-align: left; color: #ddd; }
+</style>
+</head>
+<body>
+    <div class="overlay"></div> <div class="weather-card">
+        <% if (dataCuaca) { %>
+            <h1>Cuaca di <%= dataCuaca.location.name %></h1>
+            
+            <div class="condition">
+                <img src="https:<%= dataCuaca.current.condition.icon %>" alt="Ikon Cuaca">
+                <span><%= dataCuaca.current.condition.text %></span>
+            </div>
+
+            <div class="temp"><%= Math.round(dataCuaca.current.temp_c) %>°C</div>
+            
+            <div class="details">
+                <p><strong>Terasa Seperti:</strong> <%= Math.round(dataCuaca.current.feelslike_c) %>°C</p>
+                <p><strong>Kelembapan:</strong> <%= dataCuaca.current.humidity %>%</p>
+                <p><strong>Angin:</strong> <%= dataCuaca.current.wind_kph %> km/j</p>
+            </div>
+
+        <% } else { %>
+            <h1>Gagal Memuat Data Cuaca</h1>
+            <p>Pastikan API Key di file index.js sudah benar.</p>
+        <% } %>
+    </div>
+</body>
+</html>

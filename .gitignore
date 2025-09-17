@@ -1,0 +1,5 @@
+# Folder dependensi
+node_modules
+
+# File environment (untuk menyimpan rahasia)
+.env
