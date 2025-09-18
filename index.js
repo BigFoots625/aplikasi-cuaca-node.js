@@ -6,10 +6,10 @@ const app = express();
 const port = 3000;
 
 const cityBackgrounds = {
-  'jakarta': 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/National_Monument_%28Monas%29%2C_Jakarta.jpg/800px-National_Monument_%28Monas%29%2C_Jakarta.jpg',
-  'bandung': 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Gedung_Sate_Bandung_Jawa_Barat.jpg/1024px-Gedung_Sate_Bandung_Jawa_Barat.jpg',
-  'surabaya': 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Tugu_Pahlawan_Surabaya_4.jpg/800px-Tugu_Pahlawan_Surabaya_4.jpg',
-  'medan': 'https://upload.wikimedia.org/wikipedia/commons/e/ea/Istana_Maimun_Medan_Sumatera_Utara.jpg'
+  'jakarta': 'https://cdn.idetrips.com/wp-content/uploads/2018/07/Monas-jakarta-tourism-go-id-930x620.jpg',
+  'bandung': 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Gedung_Sate_Oktober_2024_-_Rahmatdenas.jpg/1200px-Gedung_Sate_Oktober_2024_-_Rahmatdenas.jpg',
+  'surabaya': 'https://images.tokopedia.net/blog-tokopedia-com/uploads/2018/04/Wisata-Malam-Surabaya-4-Travel-Malang.jpg',
+  'medan': 'https://static.promediateknologi.id/crop/0x0:0x0/750x500/webp/photo/p1/10/2024/01/17/Medan-1-130553358.jpg'
 };
 
 app.set('view engine', 'ejs');
